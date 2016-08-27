@@ -1,43 +1,68 @@
-﻿using riff_challenge_draft.Entities;
+﻿using RiffChallengeDraft.Cli;
+using RiffChallengeDraft.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace riff_challenge_draft.DraftProgram
+namespace RiffChallengeDraft.Cli
 {
-    public class DraftEnabler
+    public class DraftFacilitator
     {
-        private List<Contestant> ContestantPool;
-        private List<Contestant> ContestantsDrawn;
-        private WeeklyTheme WeeklyTheme; 
-
-        public DraftEnabler()
+        public List<Contestant> ContestantPool;
+        public List<Contestant> ContestantsDrawn;
+        public WeeklyTheme WeeklyTheme;
+        const string WELCOME_TEXT = "Welcome to the Riff Challenge Draft CLI 2000!";
+        const string WILDCARD_QUESTION = "Is it wildcard week?";
+        const string WILDCARD_YES = "YES!!11";
+        const string WILDCARD_NO = "No, sorry. Better luck next week.";
+        public DraftFacilitator()
         {
             ContestantPool = new List<Contestant>();
             ContestantsDrawn = new List<Contestant>();
-            WeeklyTheme = new WeeklyTheme();
+            WeeklyTheme = new WeeklyTheme(true);
         }
 
         public void StartDraft()
         {
-            
+            WriteWelcomeText();
             ReadContestantsFromConsole();
             DrawAllContestants();
             AddContestantChallenges();
-
-            
             PrintContestantsChallengeOrder();
-
-            Console.WriteLine("Order is determined! Now on to the wildcard week lottery. Press any key to continue.");
-            Console.ReadKey();
-            // Is it wildcard week?
-            UIHelper.WriteLine("Is it wildcard week? " + ((WeeklyTheme.IsWildcard) ? "YES!!!1" : "no. sry"));
-            Console.WriteLine("And we're done! Thanks for tuning in, see you next week!");
-            Console.ReadKey();
             
+            UIHelper.WriteLine("Order is determined! Now on to the wildcard week lottery.");
+            UIHelper.AwaitUserInput();
+            RunWildcardDraft();
+
+            UIHelper.AwaitUserInput();
+            UIHelper.WriteLine("Aaaaaaaand, WE'RE DONE! Thanks for tuning in, see you next week!");
+            UIHelper.AwaitUserInput();
+        }
+
+        private void RunWildcardDraft()
+        {
+            // Is it wildcard week?
+            UIHelper.WriteLine(WILDCARD_QUESTION + ((WeeklyTheme.IsWildcard) ? WILDCARD_YES : WILDCARD_NO));
+            if (WeeklyTheme.IsWildcard)
+            {
+                UIHelper.WriteLine("WILDCARD TIME!");
+                UIHelper.WriteLine("What is it going to be? The choices are: " + WeeklyTheme.WildcardChoices);
+                UIHelper.AwaitUserInput();
+                var choice = WeeklyTheme.GetRandomGenre();
+                UIHelper.WriteLine("The wildcard choice is: " + choice.ToString());
+                UIHelper.WriteLine(String.Format("Which contestant is going to get his {0} wildcard pick of the week?", choice));
+                var wildcardContestant = WeeklyTheme.GetWeeklyThemeSubject(ContestantsDrawn);
+                UIHelper.WriteLine(String.Format("It's going to be: {0}! Congratulations.", wildcardContestant.Name), animate: true);
+            }
+        }
+
+        private void WriteWelcomeText()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            UIHelper.WriteLine(WELCOME_TEXT);
+            Console.ResetColor();
         }
 
         /// <summary>
@@ -57,7 +82,8 @@ namespace riff_challenge_draft.DraftProgram
                         contestant.ChallengedBy.Name));
                 }
             }
-            UIHelper.Write(contestantsChallengeSummary.ToString());
+            UIHelper.WriteLine(contestantsChallengeSummary.ToString(), animate: true, speed: UIHelper.WriteSpeed.Normal);
+            UIHelper.AwaitUserInput();
         }
 
         /// <summary>
@@ -80,11 +106,15 @@ namespace riff_challenge_draft.DraftProgram
         /// </summary>
         public void DrawAllContestants()
         {
+            UIHelper.WriteLine("Now on to the draft.", true);
+            Console.ForegroundColor = ConsoleColor.Yellow;
             while (ContestantPool.Any())
             {
                 DrawContestant();
             }
-            UIHelper.WriteLine("All contestants drawn! Moving on. ");
+            Console.ResetColor();
+            UIHelper.WriteLine("All contestants drawn! Moving on... ");
+            UIHelper.AwaitUserInput();
         }
 
         /// <summary>
@@ -97,18 +127,17 @@ namespace riff_challenge_draft.DraftProgram
             {
                 if (!ContestantPool.Any())
                 {
-                    UIHelper.WriteLine("We're now going to gather information about the contestants. Please start by entering the name of the first contestant. \n");
+                    UIHelper.WriteLine("We're now going to gather information about the contestants. \n");
                 }
                 UIHelper.WriteLine("");
-                UIHelper.WriteLine(String.Format("Please write the name of contestant number {0}: ", ContestantPool.Count + 1));
+                UIHelper.Write(String.Format("Name of contestant number {0}: ", ContestantPool.Count + 1));
                 var name = Console.ReadLine();
                 ContestantPool.Add(new Contestant(name));
-                UIHelper.WriteLine("");
-                UIHelper.Write("Great, thanks. Do you want to add another one? [Y/N]  ");
+                UIHelper.Write(" Another? [Y/N]  ");
                 var answer = "";
                 while (!Regex.IsMatch(answer, "[ynYN]"))
                 {
-                    answer = Console.ReadKey().Key.ToString();
+                    answer = Console.ReadKey(true).Key.ToString();
                     if (answer.ToLower() == "n")
                     {
                         finished = true;
@@ -121,9 +150,8 @@ namespace riff_challenge_draft.DraftProgram
             var number = new Random().Next(0, ContestantPool.Count);
             ContestantsDrawn.Add(ContestantPool.ElementAt(number));
             ContestantPool.RemoveAt(number);
-            UIHelper.WriteLine(String.Format("Contestant drawn: {0}. Press any key to draw next.", ContestantsDrawn.Last().Name));
-            UIHelper.WriteLine("");
-            Console.ReadKey();
+            UIHelper.WriteLine(String.Format("Contestant drawn: {0}.", ContestantsDrawn.Last().Name), animate: true, speed: UIHelper.WriteSpeed.ExtraSlow);
+            UIHelper.AwaitUserInput();
         }
     }
 }

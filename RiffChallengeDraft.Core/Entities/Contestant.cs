@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace riff_challenge_draft.Entities
+namespace RiffChallengeDraft.Core.Entities
 {
     public class Contestant
     {
