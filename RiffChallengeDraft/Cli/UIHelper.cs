@@ -23,31 +23,37 @@ namespace RiffChallengeDraft.Cli
             }
             if (animate)
             {
-                WriteLineAnimated(str, speed);
+                Write(str, speed, true, true);
             }
             else
             {
                 Console.WriteLine(str);
             }
-        } 
-
-        public static void WriteLineAnimated(string str, WriteSpeed speed)
-        {
-            foreach (var c in str)
-            {
-                Console.Write(c);
-                System.Threading.Thread.Sleep((int)speed);
-            }
-            Console.WriteLine();
         }
 
         /// <summary>
         /// Inline printing. Also want to do something fancy with this one at a given point in time. 
         /// </summary>
         /// <param name="str"></param>
-        public static void Write(string str)
+        public static void Write(string str, WriteSpeed speed = WriteSpeed.Normal, bool addline = false, bool animate = false)
         {
-            Console.Write(str);
+            if (animate)
+            {
+                foreach (var c in str)
+                {
+                    Console.Write(c);
+                    System.Threading.Thread.Sleep((int)speed);
+                }
+            }
+            else
+            {
+                Console.Write(str);
+            }
+            
+            if (addline)
+            {
+                Console.WriteLine();
+            }
         }
 
         public static void AwaitUserInput()

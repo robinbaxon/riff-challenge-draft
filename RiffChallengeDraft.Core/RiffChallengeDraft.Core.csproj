@@ -43,7 +43,9 @@
     <Compile Include="Entities\Genre.cs" />
     <Compile Include="Entities\Contestant.cs" />
     <Compile Include="Entities\WeeklyTheme.cs" />
-    <Compile Include="ExtensionMethods\StringExtensions.cs" />
+    <Compile Include="Helpers\EnumMethods.cs" />
+    <Compile Include="Helpers\StringExtensions.cs" />
+    <Compile Include="Helpers\TableParserExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

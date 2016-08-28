@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace RiffChallengeDraft.Core.ExtensionMethods
+namespace RiffChallengeDraft.Core.Helpers
 {
     public static class StringExtensions
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RiffChallengeDraft.Core.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,25 @@ namespace RiffChallengeDraft.Core.Entities
 {
     public class Contestant
     {
+        private ConsoleColor? _color;
+        public ConsoleColor Color
+        {
+            get
+            {
+                if(_color == null)
+                {
+                    _color = EnumMethods.RandomEnumValue<ConsoleColor>();
+                }
+                return (ConsoleColor)_color;
+            }
+        }
         public string Name { get; set; }
         public Contestant ChallengedBy { get; set; }
         public Contestant ContestantToChallenge { get; set; }
-        public Contestant(string name)
+
+        public override string ToString()
         {
-            Name = name;
+            return !String.IsNullOrEmpty(Name) ? Name : base.ToString();
         }
     }
 }

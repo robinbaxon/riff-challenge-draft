@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RiffChallengeDraft.Core.ExtensionMethods;
+using RiffChallengeDraft.Core.Helpers;
 
 namespace RiffChallengeDraft.Core.Entities
 {
@@ -53,8 +53,7 @@ namespace RiffChallengeDraft.Core.Entities
         }
         public Genre GetRandomGenre()
         {
-            var v = Enum.GetValues(typeof(Genre));
-            return (Genre)v.GetValue(new Random().Next(v.Length));
+            return EnumMethods.RandomEnumValue<Genre>();
         }
         public void ResetWildcardDraft()
         {
