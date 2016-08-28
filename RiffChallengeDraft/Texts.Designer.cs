@@ -79,6 +79,15 @@ namespace RiffChallengeDraft {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Riff challenge determination.
+        /// </summary>
+        internal static string DRAFT_CHALLENGE_OVERVIEW {
+            get {
+                return ResourceManager.GetString("DRAFT_CHALLENGE_OVERVIEW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contestant drawn.
         /// </summary>
         internal static string DRAFT_CONTESTANT_DRAWN {
@@ -97,11 +106,29 @@ namespace RiffChallengeDraft {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Now on to the draft..
+        /// </summary>
+        internal static string DRAFT_CONTINUE {
+            get {
+                return ResourceManager.GetString("DRAFT_CONTINUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to We&apos;re now going to gather information about the contestants..
         /// </summary>
         internal static string DRAFT_INFORMATION {
             get {
                 return ResourceManager.GetString("DRAFT_INFORMATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contestants list.
+        /// </summary>
+        internal static string DRAFT_INITIAL_PARTICIPANTS {
+            get {
+                return ResourceManager.GetString("DRAFT_INITIAL_PARTICIPANTS", resourceCulture);
             }
         }
         
@@ -115,15 +142,6 @@ namespace RiffChallengeDraft {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Now on to the draft..
-        /// </summary>
-        internal static string DRAW_ON_TO_DRAFT {
-            get {
-                return ResourceManager.GetString("DRAW_ON_TO_DRAFT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Aaaaaaaand, WE&apos;RE DONE! Thanks for tuning in, see you next week!.
         /// </summary>
         internal static string ENDING_TEXT {
@@ -133,11 +151,83 @@ namespace RiffChallengeDraft {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order is determined! Now on to the wildcard week lottery..
+        ///   Looks up a localized string similar to Order is determined! Now on to the theme week lottery..
         /// </summary>
-        internal static string ORDER_DETERMINED_ON_TO_WILDCARD {
+        internal static string ORDER_DETERMINED_ON_TO_THEME {
             get {
-                return ResourceManager.GetString("ORDER_DETERMINED_ON_TO_WILDCARD", resourceCulture);
+                return ResourceManager.GetString("ORDER_DETERMINED_ON_TO_THEME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is it going to be? The choices are.
+        /// </summary>
+        internal static string THEME_CHOICES_ARE {
+            get {
+                return ResourceManager.GetString("THEME_CHOICES_ARE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NO.
+        /// </summary>
+        internal static string THEME_NO {
+            get {
+                return ResourceManager.GetString("THEME_NO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The theme pick is:.
+        /// </summary>
+        internal static string THEME_PICK_IS {
+            get {
+                return ResourceManager.GetString("THEME_PICK_IS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is it theme week?.
+        /// </summary>
+        internal static string THEME_QUESTION {
+            get {
+                return ResourceManager.GetString("THEME_QUESTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s going to be: {0}! Congratulations..
+        /// </summary>
+        internal static string THEME_TEMPLATE_PARTICIPANT_PICK {
+            get {
+                return ResourceManager.GetString("THEME_TEMPLATE_PARTICIPANT_PICK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Which contestant is going to get his {0} wildcard pick of the week?.
+        /// </summary>
+        internal static string THEME_TEMPLATE_WHICH_CONTESTANT {
+            get {
+                return ResourceManager.GetString("THEME_TEMPLATE_WHICH_CONTESTANT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme week.
+        /// </summary>
+        internal static string THEME_TIME {
+            get {
+                return ResourceManager.GetString("THEME_TIME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to YES.
+        /// </summary>
+        internal static string THEME_YES {
+            get {
+                return ResourceManager.GetString("THEME_YES", resourceCulture);
             }
         }
         
@@ -147,78 +237,6 @@ namespace RiffChallengeDraft {
         internal static string WELCOME_TEXT {
             get {
                 return ResourceManager.GetString("WELCOME_TEXT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to What is it going to be? The choices are.
-        /// </summary>
-        internal static string WILDCARD_CHOICES_ARE {
-            get {
-                return ResourceManager.GetString("WILDCARD_CHOICES_ARE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No, sorry. Better luck next week..
-        /// </summary>
-        internal static string WILDCARD_NO {
-            get {
-                return ResourceManager.GetString("WILDCARD_NO", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The wildcard choice is:.
-        /// </summary>
-        internal static string WILDCARD_PICK_IS {
-            get {
-                return ResourceManager.GetString("WILDCARD_PICK_IS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Is it wildcard week?.
-        /// </summary>
-        internal static string WILDCARD_QUESTION {
-            get {
-                return ResourceManager.GetString("WILDCARD_QUESTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to It&apos;s going to be: {0}! Congratulations..
-        /// </summary>
-        internal static string WILDCARD_TEMPLATE_PARTICIPANT_PICK {
-            get {
-                return ResourceManager.GetString("WILDCARD_TEMPLATE_PARTICIPANT_PICK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Which contestant is going to get his {0} wildcard pick of the week?.
-        /// </summary>
-        internal static string WILDCARD_TEMPLATE_WHICH_CONTESTANT {
-            get {
-                return ResourceManager.GetString("WILDCARD_TEMPLATE_WHICH_CONTESTANT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to WILDCARD TIME!.
-        /// </summary>
-        internal static string WILDCARD_TIME {
-            get {
-                return ResourceManager.GetString("WILDCARD_TIME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to YES!!11.
-        /// </summary>
-        internal static string WILDCARD_YES {
-            get {
-                return ResourceManager.GetString("WILDCARD_YES", resourceCulture);
             }
         }
     }

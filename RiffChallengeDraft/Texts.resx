@@ -123,52 +123,58 @@
   <data name="DRAFT_ANOTHER" xml:space="preserve">
     <value>Another?</value>
   </data>
+  <data name="DRAFT_CHALLENGE_OVERVIEW" xml:space="preserve">
+    <value>Riff challenge determination</value>
+  </data>
   <data name="DRAFT_CONTESTANT_DRAWN" xml:space="preserve">
     <value>Contestant drawn</value>
   </data>
   <data name="DRAFT_CONTESTANT_NUMBER" xml:space="preserve">
     <value>Name of contestant number</value>
   </data>
+  <data name="DRAFT_CONTINUE" xml:space="preserve">
+    <value>Now on to the draft.</value>
+  </data>
   <data name="DRAFT_INFORMATION" xml:space="preserve">
     <value>We're now going to gather information about the contestants.</value>
+  </data>
+  <data name="DRAFT_INITIAL_PARTICIPANTS" xml:space="preserve">
+    <value>Contestants list</value>
   </data>
   <data name="DRAFT_TEMPLATE_PARTICIPANT_WILL_CHALLENGE" xml:space="preserve">
     <value>{0} will challenge {1}, and is challenged by {2}</value>
   </data>
-  <data name="DRAW_ON_TO_DRAFT" xml:space="preserve">
-    <value>Now on to the draft.</value>
-  </data>
   <data name="ENDING_TEXT" xml:space="preserve">
     <value>Aaaaaaaand, WE'RE DONE! Thanks for tuning in, see you next week!</value>
   </data>
-  <data name="ORDER_DETERMINED_ON_TO_WILDCARD" xml:space="preserve">
-    <value>Order is determined! Now on to the wildcard week lottery.</value>
+  <data name="ORDER_DETERMINED_ON_TO_THEME" xml:space="preserve">
+    <value>Order is determined! Now on to the theme week lottery.</value>
+  </data>
+  <data name="THEME_CHOICES_ARE" xml:space="preserve">
+    <value>What is it going to be? The choices are</value>
+  </data>
+  <data name="THEME_NO" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="THEME_PICK_IS" xml:space="preserve">
+    <value>The theme pick is:</value>
+  </data>
+  <data name="THEME_QUESTION" xml:space="preserve">
+    <value>Is it theme week?</value>
+  </data>
+  <data name="THEME_TEMPLATE_PARTICIPANT_PICK" xml:space="preserve">
+    <value>It's going to be: {0}! Congratulations.</value>
+  </data>
+  <data name="THEME_TEMPLATE_WHICH_CONTESTANT" xml:space="preserve">
+    <value>Which contestant is going to get his {0} wildcard pick of the week?</value>
+  </data>
+  <data name="THEME_TIME" xml:space="preserve">
+    <value>Theme week</value>
+  </data>
+  <data name="THEME_YES" xml:space="preserve">
+    <value>YES</value>
   </data>
   <data name="WELCOME_TEXT" xml:space="preserve">
     <value>Welcome to the Riff Challenge Draft CLI 2000!</value>
-  </data>
-  <data name="WILDCARD_CHOICES_ARE" xml:space="preserve">
-    <value>What is it going to be? The choices are</value>
-  </data>
-  <data name="WILDCARD_NO" xml:space="preserve">
-    <value>No, sorry. Better luck next week.</value>
-  </data>
-  <data name="WILDCARD_PICK_IS" xml:space="preserve">
-    <value>The wildcard choice is:</value>
-  </data>
-  <data name="WILDCARD_QUESTION" xml:space="preserve">
-    <value>Is it wildcard week?</value>
-  </data>
-  <data name="WILDCARD_TEMPLATE_PARTICIPANT_PICK" xml:space="preserve">
-    <value>It's going to be: {0}! Congratulations.</value>
-  </data>
-  <data name="WILDCARD_TEMPLATE_WHICH_CONTESTANT" xml:space="preserve">
-    <value>Which contestant is going to get his {0} wildcard pick of the week?</value>
-  </data>
-  <data name="WILDCARD_TIME" xml:space="preserve">
-    <value>WILDCARD TIME!</value>
-  </data>
-  <data name="WILDCARD_YES" xml:space="preserve">
-    <value>YES!!11</value>
   </data>
 </root>

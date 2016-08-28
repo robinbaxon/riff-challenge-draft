@@ -14,9 +14,22 @@ namespace RiffChallengeDraft.Core.Entities
         {
             get
             {
+                if(ConsoleColors.ChosenOnes == null)
+                {
+                    ConsoleColors.ChosenOnes = new List<ConsoleColor>();
+                }
                 if(_color == null)
                 {
-                    _color = EnumMethods.RandomEnumValue<ConsoleColor>();
+                    while(_color == null || _color == Console.BackgroundColor || ConsoleColors.ChosenOnes.Contains((ConsoleColor)_color))
+                    {
+                        _color = EnumMethods.RandomEnumValue<ConsoleColor>();
+                    }
+                    ConsoleColors.ChosenOnes.Add((ConsoleColor)_color);
+                    if(ConsoleColors.ChosenOnes.Count >= 15)
+                    {
+                        // There are only 16 console colors, and we've already eliminated the background color. Have to reset colors.
+                        ConsoleColors.ChosenOnes = new List<ConsoleColor>();
+                    }
                 }
                 return (ConsoleColor)_color;
             }
@@ -29,5 +42,10 @@ namespace RiffChallengeDraft.Core.Entities
         {
             return !String.IsNullOrEmpty(Name) ? Name : base.ToString();
         }
+    }
+
+    public static class ConsoleColors
+    {
+        public static List<ConsoleColor> ChosenOnes;
     }
 }

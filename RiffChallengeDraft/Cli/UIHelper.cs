@@ -15,7 +15,7 @@ namespace RiffChallengeDraft.Cli
         /// Printing a line. Want to improve this somewhat in the future to be a bit more fancy.
         /// </summary>
         /// <param name="str"></param>
-        public static void WriteLine(string str, bool printextraline = false, bool animate = true, WriteSpeed speed = WriteSpeed.Fast)
+        public static void WriteLine(string str, bool printextraline = false, bool animate = true, WriteSpeed speed = WriteSpeed.Fast, ConsoleColor color = ConsoleColor.White)
         {
             if (printextraline)
             {
@@ -23,11 +23,13 @@ namespace RiffChallengeDraft.Cli
             }
             if (animate)
             {
-                Write(str, speed, true, true);
+                Write(str, speed, true, true, color);
             }
             else
             {
+                Console.ForegroundColor = color;
                 Console.WriteLine(str);
+                Console.ResetColor();
             }
         }
 
@@ -35,8 +37,9 @@ namespace RiffChallengeDraft.Cli
         /// Inline printing. Also want to do something fancy with this one at a given point in time. 
         /// </summary>
         /// <param name="str"></param>
-        public static void Write(string str, WriteSpeed speed = WriteSpeed.Normal, bool addline = false, bool animate = false)
+        public static void Write(string str, WriteSpeed speed = WriteSpeed.Normal, bool addline = false, bool animate = false, ConsoleColor color = ConsoleColor.White)
         {
+            Console.ForegroundColor = color;
             if (animate)
             {
                 foreach (var c in str)
@@ -54,6 +57,7 @@ namespace RiffChallengeDraft.Cli
             {
                 Console.WriteLine();
             }
+            Console.ResetColor();
         }
 
         public static void AwaitUserInput()

@@ -20,7 +20,7 @@ namespace RiffChallengeDraft.Tests
             int successCount = 0;
             while (iterations > 0)
             {
-                successCount += (enabler.WeeklyTheme.IsWildcard) ? 1 : 0;
+                successCount += (enabler.WeeklyTheme.IsThemeWeek) ? 1 : 0;
                 iterations--;
             }
             //Assume over 30% success rate when choosing WeeklyTheme

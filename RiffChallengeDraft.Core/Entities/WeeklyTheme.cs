@@ -28,7 +28,7 @@ namespace RiffChallengeDraft.Core.Entities
                 return String.Join(", ", Enum.GetNames(typeof(Genre))).ReplaceEnd(",", " and ");
             }
         }
-        public bool IsWildcard
+        public bool IsThemeWeek
         {
             get
             {
