@@ -45,7 +45,7 @@ namespace RiffChallengeDraft.Core.Entities
         {
             _keepWildcardResult = keepwildcardresult;
         }
-        public Contestant GetWeeklyThemeSubject(List<Contestant> contestants)
+        public Contestant GetRandomContestant(List<Contestant> contestants)
         {
             {
                 return contestants.ElementAt(Randomizer.Next(0, contestants.Count));

@@ -13,7 +13,7 @@ namespace RiffChallengeDraft.Cli
     public class DraftFacilitator
     {
         private string _logFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        private Contestant _weeklyWildcardContestant = null;
+        private string _fileName;
         private Genre? _weeklyWildcardGenre = null;
         private DateTime _initiatedDateTime;
 
@@ -29,7 +29,8 @@ namespace RiffChallengeDraft.Cli
             ContestantsDrawn = new List<Contestant>();
             WeeklyTheme = new WeeklyTheme(true);
             _initiatedDateTime = DateTime.Now;
-        }
+            _fileName = "RCD-" + _initiatedDateTime.ToString("yyyy-MM-dd-hh-mm") + ".log"; // draft-2016-08-27-06-17.log
+    }
 
         public void StartDraft()
         {
@@ -42,51 +43,16 @@ namespace RiffChallengeDraft.Cli
             
             UIHelper.WriteLine(Texts.ORDER_DETERMINED_ON_TO_THEME);
             UIHelper.AwaitUserInput();
-            RunWildcardDraft();
+            PerformThemeWeekDraft();
+            PerformStreamerSecretaryDraft();
+            
+
             UIHelper.AwaitUserInput();
+            UIHelper.WriteLine(String.Format("{0}: {1}", Texts.LOG_CAN_BE_FOUND_HERE, (_logFilePath + "\\" + _fileName)));
             UIHelper.WriteLine(Texts.ENDING_TEXT);
             UIHelper.AwaitUserInput();
         }
 
-      
-
-        private void RunWildcardDraft()
-        {
-            LogResultsHeadline(Texts.THEME_TIME);
-            // Is it wildcard week?
-            UIHelper.WriteLine(Texts.THEME_QUESTION);
-            UIHelper.AwaitUserInput();
-            var themeweekString = WeeklyTheme.IsThemeWeek ? Texts.THEME_YES : Texts.THEME_NO;
-            UIHelper.WriteLine(
-                themeweekString, 
-                speed: UIHelper.WriteSpeed.ExtraSlow, 
-                color: WeeklyTheme.IsThemeWeek ? ConsoleColor.Green : ConsoleColor.Red
-            );
-            LogResults("Wildcard: " + themeweekString);
-            if (WeeklyTheme.IsThemeWeek)
-            {
-                UIHelper.WriteLine(Texts.THEME_TIME);
-                UIHelper.WriteLine(Texts.THEME_CHOICES_ARE + ": " + WeeklyTheme.WildcardChoices);
-                UIHelper.AwaitUserInput();
-                _weeklyWildcardGenre = WeeklyTheme.GetRandomGenre();
-                LogResults("Theme type: " + _weeklyWildcardGenre.ToString());
-                UIHelper.WriteLine(Texts.THEME_PICK_IS + _weeklyWildcardGenre.ToString());
-                UIHelper.AwaitUserInput();
-                UIHelper.WriteLine(String.Format(Texts.THEME_TEMPLATE_WHICH_CONTESTANT, _weeklyWildcardGenre));
-                _weeklyWildcardContestant = WeeklyTheme.GetWeeklyThemeSubject(ContestantsDrawn);
-                UIHelper.AwaitUserInput();
-                UIHelper.WriteLine(String.Format(Texts.THEME_TEMPLATE_PARTICIPANT_PICK, _weeklyWildcardContestant.Name), animate: true);
-                LogResults("Pick theme from: " + _weeklyWildcardContestant.Name);
-            }
-            
-            
-            
-        }
-
-        private void WriteWelcomeText()
-        {
-            UIHelper.WriteLine(Texts.WELCOME_TEXT, color: ConsoleColor.Red);
-        }
 
         /// <summary>
         /// Print each contestant, who they challenge and who the are challenged by. 
@@ -111,6 +77,73 @@ namespace RiffChallengeDraft.Cli
             UIHelper.WriteLine(contestantsChallengeTable, animate: true, speed: UIHelper.WriteSpeed.Fast);
             UIHelper.AwaitUserInput();
         }
+
+        /// <summary>
+        /// Theme week draft for next week's riff challenge.
+        /// </summary>
+        private void PerformThemeWeekDraft()
+        {
+            LogResultsHeadline(Texts.THEME_WEEK);
+            UIHelper.WriteLine(Texts.THEME_WEEK);
+            // Is it wildcard week?
+            UIHelper.WriteLine(Texts.THEME_QUESTION);
+            UIHelper.AwaitUserInput();
+            var themeweekString = WeeklyTheme.IsThemeWeek ? Texts.THEME_YES : Texts.THEME_NO;
+            UIHelper.WriteLine(
+                themeweekString, 
+                speed: UIHelper.WriteSpeed.ExtraSlow, 
+                color: WeeklyTheme.IsThemeWeek ? ConsoleColor.Green : ConsoleColor.Red
+            );
+            LogResults("Wildcard: " + themeweekString);
+            if (WeeklyTheme.IsThemeWeek)
+            {
+                UIHelper.WriteLine(Texts.THEME_CHOICES_ARE + ": " + WeeklyTheme.WildcardChoices);
+                UIHelper.AwaitUserInput();
+                _weeklyWildcardGenre = WeeklyTheme.GetRandomGenre();
+                LogResults("Theme type: " + _weeklyWildcardGenre.ToString());
+                UIHelper.WriteLine(Texts.THEME_PICK_IS + _weeklyWildcardGenre.ToString());
+                UIHelper.AwaitUserInput();
+                UIHelper.WriteLine(String.Format(Texts.THEME_TEMPLATE_WHICH_CONTESTANT, _weeklyWildcardGenre));
+                var _weeklyWildcardContestant = WeeklyTheme.GetRandomContestant(ContestantsDrawn);
+                UIHelper.AwaitUserInput();
+                UIHelper.WriteLine(String.Format(Texts.THEME_TEMPLATE_PARTICIPANT_PICK, _weeklyWildcardContestant.Name), animate: true);
+                LogResults("Pick theme from: " + _weeklyWildcardContestant.Name);
+            }
+        }
+
+        /// <summary>
+        /// Streamer draft for next week's riff challenge.
+        /// </summary>
+        private void PerformStreamerSecretaryDraft()
+        {
+            LogResultsHeadline(Texts.NEXTDRAFT_HEADLINE);
+            UIHelper.WriteLine(Texts.NEXTDRAFT_HEADLINE);
+            var streamer = WeeklyTheme.GetRandomContestant(ContestantsDrawn);
+            
+            var streamerTextLine = String.Format("{0}: {1}", Texts.NEXTDRAFT_STREAMER_IS, streamer.Name);
+            UIHelper.AwaitUserInput();
+            UIHelper.WriteLine(streamerTextLine);
+            UIHelper.AwaitUserInput();
+
+            var secretaryList = ContestantsDrawn;
+            if (secretaryList.Count > 1) // In case there is only ONE contestant! 
+            {
+                secretaryList.Remove(streamer); 
+            }
+            var secretary = WeeklyTheme.GetRandomContestant(secretaryList);
+            var secretaryTextLine = String.Format("{0}: {1}", Texts.NEXTDRAFT_SECRETARY_IS, secretary.Name);
+            UIHelper.WriteLine(secretaryTextLine);
+            LogResults(streamerTextLine);
+            LogResults(secretaryTextLine);
+        }
+
+
+        private void WriteWelcomeText()
+        {
+            UIHelper.WriteLine(Texts.WELCOME_TEXT, color: ConsoleColor.Red);
+        }
+
+        
 
         /// <summary>
         /// Older, verbose method of printing the contestants list. Keeping because the author has hoarding tendencies.
@@ -221,7 +254,7 @@ namespace RiffChallengeDraft.Cli
         /// </summary>
         private void LogResults(string logString)
         {
-            var _fileName = "RCD-" + _initiatedDateTime.ToString("yyyy-MM-dd-hh-mm") + ".log"; // draft-2016-08-27-06-17.log
+            
             File.AppendAllText(_logFilePath+"\\"+_fileName, logString + Environment.NewLine);
         }
 

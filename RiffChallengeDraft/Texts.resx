@@ -147,6 +147,18 @@
   <data name="ENDING_TEXT" xml:space="preserve">
     <value>Aaaaaaaand, WE'RE DONE! Thanks for tuning in, see you next week!</value>
   </data>
+  <data name="LOG_CAN_BE_FOUND_HERE" xml:space="preserve">
+    <value>Log can be found here</value>
+  </data>
+  <data name="NEXTDRAFT_HEADLINE" xml:space="preserve">
+    <value>Stream/Secretary draft</value>
+  </data>
+  <data name="NEXTDRAFT_SECRETARY_IS" xml:space="preserve">
+    <value>Secretary is going to be</value>
+  </data>
+  <data name="NEXTDRAFT_STREAMER_IS" xml:space="preserve">
+    <value>Streamer is going to be</value>
+  </data>
   <data name="ORDER_DETERMINED_ON_TO_THEME" xml:space="preserve">
     <value>Order is determined! Now on to the theme week lottery.</value>
   </data>
@@ -166,9 +178,9 @@
     <value>It's going to be: {0}! Congratulations.</value>
   </data>
   <data name="THEME_TEMPLATE_WHICH_CONTESTANT" xml:space="preserve">
-    <value>Which contestant is going to get his {0} wildcard pick of the week?</value>
+    <value>Which contestant is going to get his {0} theme idea of the week?</value>
   </data>
-  <data name="THEME_TIME" xml:space="preserve">
+  <data name="THEME_WEEK" xml:space="preserve">
     <value>Theme week</value>
   </data>
   <data name="THEME_YES" xml:space="preserve">

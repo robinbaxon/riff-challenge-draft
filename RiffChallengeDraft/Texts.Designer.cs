@@ -151,6 +151,42 @@ namespace RiffChallengeDraft {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log can be found here.
+        /// </summary>
+        internal static string LOG_CAN_BE_FOUND_HERE {
+            get {
+                return ResourceManager.GetString("LOG_CAN_BE_FOUND_HERE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stream/Secretary draft.
+        /// </summary>
+        internal static string NEXTDRAFT_HEADLINE {
+            get {
+                return ResourceManager.GetString("NEXTDRAFT_HEADLINE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secretary is going to be.
+        /// </summary>
+        internal static string NEXTDRAFT_SECRETARY_IS {
+            get {
+                return ResourceManager.GetString("NEXTDRAFT_SECRETARY_IS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Streamer is going to be.
+        /// </summary>
+        internal static string NEXTDRAFT_STREAMER_IS {
+            get {
+                return ResourceManager.GetString("NEXTDRAFT_STREAMER_IS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Order is determined! Now on to the theme week lottery..
         /// </summary>
         internal static string ORDER_DETERMINED_ON_TO_THEME {
@@ -205,7 +241,7 @@ namespace RiffChallengeDraft {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Which contestant is going to get his {0} wildcard pick of the week?.
+        ///   Looks up a localized string similar to Which contestant is going to get his {0} theme idea of the week?.
         /// </summary>
         internal static string THEME_TEMPLATE_WHICH_CONTESTANT {
             get {
@@ -216,9 +252,9 @@ namespace RiffChallengeDraft {
         /// <summary>
         ///   Looks up a localized string similar to Theme week.
         /// </summary>
-        internal static string THEME_TIME {
+        internal static string THEME_WEEK {
             get {
-                return ResourceManager.GetString("THEME_TIME", resourceCulture);
+                return ResourceManager.GetString("THEME_WEEK", resourceCulture);
             }
         }
         
