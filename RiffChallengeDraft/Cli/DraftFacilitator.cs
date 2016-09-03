@@ -1,5 +1,4 @@
-﻿using RiffChallengeDraft.Cli;
-using RiffChallengeDraft.Core.Entities;
+﻿using RiffChallengeDraft.Core.Entities;
 using RiffChallengeDraft.Core.Helpers;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ namespace RiffChallengeDraft.Cli
 {
     public class DraftFacilitator
     {
-        private string _logFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private string _logFilePath = UIHelper.GetHomeDirectory();
         private string _fileName;
         private Genre? _weeklyWildcardGenre = null;
         private DateTime _initiatedDateTime;
@@ -34,7 +33,7 @@ namespace RiffChallengeDraft.Cli
 
         public void StartDraft()
         {
-            LogResultsHeadline("Riff Challenge - " + _initiatedDateTime.ToLongDateString());
+            LogResultsHeadline("Riff Challenge - " + _initiatedDateTime.ToString());
             WriteWelcomeText();
             ReadContestantsFromConsole();
             DrawAllContestants();

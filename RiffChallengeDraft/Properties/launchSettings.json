@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RiffChallengeDraft": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "HOME": "C:\\Users\\baxon"
+      }
+    }
+  }
+}

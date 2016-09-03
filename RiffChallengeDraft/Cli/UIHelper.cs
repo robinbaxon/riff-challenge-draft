@@ -75,5 +75,18 @@ namespace RiffChallengeDraft.Cli
             }
             userInterrupt = false;
         }
+
+
+        /// <summary>Gets the current user's home directory.</summary>
+        /// <returns>The path to the home directory, or null if it could not be determined.</returns>
+        public static string GetHomeDirectory()
+        {
+            // First try to get the user's home directory from the HOME environment variable.
+            // This should work in most cases.
+            string userHomeDirectory = Environment.GetEnvironmentVariable("HOME");
+            if (!string.IsNullOrEmpty(userHomeDirectory))
+                return userHomeDirectory;
+            else return "";
+        }
     }
 }

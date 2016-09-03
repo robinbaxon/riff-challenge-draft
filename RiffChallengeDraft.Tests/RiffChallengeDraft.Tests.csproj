@@ -57,13 +57,13 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RiffChallengeDraft.Core\RiffChallengeDraft.Core.csproj">
+    <ProjectReference Include="..\RiffChallengeDraft.Core\RiffChallengeDraft.Core.Old.csproj">
       <Project>{DF09704F-4B67-4594-B545-053E3024F59B}</Project>
-      <Name>RiffChallengeDraft.Core</Name>
+      <Name>RiffChallengeDraft.Core.Old</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RiffChallengeDraft\RiffChallengeDraft.csproj">
+    <ProjectReference Include="..\RiffChallengeDraft\RiffChallengeDraft.Old.csproj">
       <Project>{970de1c6-a460-4622-b0bd-f8e21a52ea19}</Project>
-      <Name>RiffChallengeDraft</Name>
+      <Name>RiffChallengeDraft.Old</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
