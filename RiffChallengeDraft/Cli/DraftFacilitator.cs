@@ -212,7 +212,6 @@ namespace RiffChallengeDraft.Cli
                         finished = true;
                     }
                 }
-                Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
             }
             LogResultsHeadline(Texts.DRAFT_INITIAL_PARTICIPANTS);
             LogResults(ContestantPool.ToStringTable(
@@ -254,7 +253,7 @@ namespace RiffChallengeDraft.Cli
         private void LogResults(string logString)
         {
             
-            File.AppendAllText(_logFilePath+"\\"+_fileName, logString + Environment.NewLine);
+            File.AppendAllText(_logFilePath+ Path.DirectorySeparatorChar + _fileName, logString + Environment.NewLine);
         }
 
         private void LogResultsHeadline(string logString)

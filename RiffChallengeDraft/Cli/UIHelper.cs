@@ -9,7 +9,18 @@ namespace RiffChallengeDraft.Cli
     static class UIHelper
     {
         static volatile bool userInterrupt = false;
-
+        static private bool? _useAnimation;
+        static bool UseAnimation
+        {
+            get
+            {
+                if(_useAnimation == null)
+                {
+                    _useAnimation = System.Runtime.InteropServices.RuntimeInformation.OSDescription.StartsWith("Microsoft");
+                }
+                return (bool)_useAnimation;
+            }
+        }
         public enum WriteSpeed { Fast = 10, Normal = 40, Slow = 70, ExtraSlow = 110};
         /// <summary>
         /// Printing a line. Want to improve this somewhat in the future to be a bit more fancy.
@@ -62,6 +73,7 @@ namespace RiffChallengeDraft.Cli
 
         public static void AwaitUserInput()
         {
+            var useAnimation = 
             Task.Factory.StartNew(() =>
             {
                 while (Console.ReadKey().Key != ConsoleKey.Enter) ;
@@ -70,7 +82,10 @@ namespace RiffChallengeDraft.Cli
 
             while (!userInterrupt)
             {
-                ConsoleSpinner.Turn();
+                if (UseAnimation)
+                {
+                    ConsoleSpinner.Turn();
+                }
                 System.Threading.Thread.Sleep(120);
             }
             userInterrupt = false;
