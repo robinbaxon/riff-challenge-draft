@@ -14,6 +14,7 @@ namespace RiffChallengeDraft.Cli
     {
         private string _logFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         private string _fileName;
+        private string _absolutePath;
         private Genre? _weeklyWildcardGenre = null;
         private DateTime _initiatedDateTime;
 
@@ -30,7 +31,10 @@ namespace RiffChallengeDraft.Cli
             WeeklyTheme = new WeeklyTheme(true);
             _initiatedDateTime = DateTime.Now;
             _fileName = "RCD-" + _initiatedDateTime.ToString("yyyy-MM-dd-hh-mm") + ".log"; // draft-2016-08-27-06-17.log
-    }
+            _absolutePath = _logFilePath + "\\" + _fileName;
+        }
+
+     
 
         public void StartDraft()
         {
@@ -48,7 +52,7 @@ namespace RiffChallengeDraft.Cli
             
 
             UIHelper.AwaitUserInput();
-            UIHelper.WriteLine(String.Format("{0}: {1}", Texts.LOG_CAN_BE_FOUND_HERE, (_logFilePath + "\\" + _fileName)));
+            UIHelper.WriteLine(String.Format("{0}: {1}", Texts.LOG_CAN_BE_FOUND_HERE, (_absolutePath)));
             UIHelper.WriteLine(Texts.ENDING_TEXT);
             UIHelper.AwaitUserInput();
         }
@@ -254,8 +258,16 @@ namespace RiffChallengeDraft.Cli
         /// </summary>
         private void LogResults(string logString)
         {
-            
-            File.AppendAllText(_logFilePath+"\\"+_fileName, logString + Environment.NewLine);
+            //File.AppendAllText(_absolutePath, logString + Environment.NewLine);
+            using (FileStream fs = new FileStream(_absolutePath,FileMode.Append, FileAccess.Write))
+            {
+                StreamWriter sw = new StreamWriter(fs);
+                long endPoint=fs.Length;
+                // Set the stream position to the end of the file.        
+                fs.Seek(endPoint, SeekOrigin.Begin);
+                sw.WriteLine(logString);
+                sw.Flush();
+            }
         }
 
         private void LogResultsHeadline(string logString)
