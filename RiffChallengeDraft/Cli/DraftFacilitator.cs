@@ -1,5 +1,4 @@
-﻿using RiffChallengeDraft.Cli;
-using RiffChallengeDraft.Core.Entities;
+﻿using RiffChallengeDraft.Core.Entities;
 using RiffChallengeDraft.Core.Helpers;
 using System;
 using System.Collections.Generic;
