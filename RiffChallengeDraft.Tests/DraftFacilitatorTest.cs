@@ -13,15 +13,19 @@ namespace RiffChallengeDraft.Tests
         [Test]
         public void TestThemeWeekProbability()
         {
+            // Arrage
             const int NUM_ITERATIONS = 100000;
             int iterations = NUM_ITERATIONS;
             int successCount = 0;
+            
+            // Act
             while (iterations > 0)
             {
                 successCount += (enabler.WeeklyTheme.IsThemeWeek) ? 1 : 0;
                 iterations--;
             }
-            //Assume over 30% success rate when choosing WeeklyTheme
+            // Assert
+            // Assume over 30% success rate when choosing WeeklyTheme
             Assert.Multiple(() =>
             {
                 Assert.That(successCount, Is.Positive);
