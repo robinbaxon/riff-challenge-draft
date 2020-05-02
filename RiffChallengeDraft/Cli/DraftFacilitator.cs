@@ -1,5 +1,4 @@
-﻿using RiffChallengeDraft.Cli;
-using RiffChallengeDraft.Core.Entities;
+﻿using RiffChallengeDraft.Core.Entities;
 using RiffChallengeDraft.Core.Helpers;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ namespace RiffChallengeDraft.Cli
 {
     public class DraftFacilitator
     {
-        private string _logFilePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private string _logFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
         private string _fileName;
         private string _absolutePath;
         private Genre? _weeklyWildcardGenre = null;
@@ -31,7 +30,7 @@ namespace RiffChallengeDraft.Cli
             WeeklyTheme = new WeeklyTheme(true);
             _initiatedDateTime = DateTime.Now;
             _fileName = "RCD-" + _initiatedDateTime.ToString("yyyy-MM-dd-hh-mm") + ".log"; // draft-2016-08-27-06-17.log
-            _absolutePath = _logFilePath + "\\" + _fileName;
+            _absolutePath = _logFilePath + Path.DirectorySeparatorChar + _fileName;
         }
 
      
