@@ -22,7 +22,9 @@ namespace RiffChallengeDraft.Cli
                 case 2: Console.Write("\\"); break;
                 case 3: Console.Write("|"); break;
             }
-            Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+
+            var pos = Console.CursorLeft - 1 >= 0 ? Console.CursorLeft - 1 : 0;
+                Console.SetCursorPosition(pos, Console.CursorTop);    
         }
     }
 }
