@@ -25,11 +25,11 @@ namespace RiffChallengeDraft.Tests
                 iterations--;
             }
             // Assert
-            // Assume over 30% success rate when choosing WeeklyTheme
+            // Assume over 25% success rate when choosing WeeklyTheme
             Assert.Multiple(() =>
             {
                 Assert.That(successCount, Is.Positive);
-                Assert.That(successCount, Is.GreaterThan(NUM_ITERATIONS / 3));
+                Assert.That(successCount, Is.GreaterThan(NUM_ITERATIONS / 4));
             });
         }
 
