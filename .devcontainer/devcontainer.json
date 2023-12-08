@@ -1,0 +1,4 @@
+{
+    "image": "mcr.microsoft.com/vscode/devcontainers/dotnet:8.0",
+    "forwardPorts": [ 5000, 5001 ]
+}
