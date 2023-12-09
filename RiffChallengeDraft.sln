@@ -1,28 +1,27 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiffChallengeDraft", "RiffChallengeDraft\RiffChallengeDraft.csproj", "{27215FBF-AF77-48D4-8F24-5EC130A50CAF}"
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiffChallengeDraft", "src\RiffChallengeDraft\RiffChallengeDraft.csproj", "{27215FBF-AF77-48D4-8F24-5EC130A50CAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiffChallengeDraft.Core", "RiffChallengeDraft.Core\RiffChallengeDraft.Core.csproj", "{1BE5F820-4F45-46C6-9FCD-269011BC9B98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiffChallengeDraft.Core", "src\RiffChallengeDraft.Core\RiffChallengeDraft.Core.csproj", "{1BE5F820-4F45-46C6-9FCD-269011BC9B98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiffChallengeDraft.Tests", "RiffChallengeDraft.Tests\RiffChallengeDraft.Tests.csproj", "{6EEE91DC-A6CC-405F-8510-DDB6A8B63751}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiffChallengeDraft.Tests", "tests\RiffChallengeDraft.Tests\RiffChallengeDraft.Tests.csproj", "{6EEE91DC-A6CC-405F-8510-DDB6A8B63751}"
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{27215FBF-AF77-48D4-8F24-5EC130A50CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27215FBF-AF77-48D4-8F24-5EC130A50CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27215FBF-AF77-48D4-8F24-5EC130A50CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27215FBF-AF77-48D4-8F24-5EC130A50CAF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1BE5F820-4F45-46C6-9FCD-269011BC9B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BE5F820-4F45-46C6-9FCD-269011BC9B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BE5F820-4F45-46C6-9FCD-269011BC9B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BE5F820-4F45-46C6-9FCD-269011BC9B98}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EEE91DC-A6CC-405F-8510-DDB6A8B63751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EEE91DC-A6CC-405F-8510-DDB6A8B63751}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EEE91DC-A6CC-405F-8510-DDB6A8B63751}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EEE91DC-A6CC-405F-8510-DDB6A8B63751}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-EndGlobal
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Debug|Any CPU = Debug|Any CPU
+        Release|Any CPU = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {27215FBF-AF77-48D4-8F24-5EC130A50CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {27215FBF-AF77-48D4-8F24-5EC130A50CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {27215FBF-AF77-48D4-8F24-5EC130A50CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {27215FBF-AF77-48D4-8F24-5EC130A50CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+        {1BE5F820-4F45-46C6-9FCD-269011BC9B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {1BE5F820-4F45-46C6-9FCD-269011BC9B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {1BE5F820-4F45-46C6-9FCD-269011BC9B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {1BE5F820-4F45-46C6-9FCD-269011BC9B98}.Release|Any CPU.Build.0 = Release|Any CPU
+        {6EEE91DC-A6CC-405F-8510-DDB6A8B63751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {6EEE91DC-A6CC-405F-8510-DDB6A8B63751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {6EEE91DC-A6CC-405F-8510-DDB6A8B63751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {6EEE91DC-A6CC-405F-8510-DDB6A8B63751}.Release|Any CPU.Build.0 = Release|Any CPU
+    EndGlobalSection
+EndGlobal 
