@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\RiffChallengeDraft\RiffChallengeDraft.csproj" />
+      <ProjectReference Include="..\..\src\RiffChallengeDraft\RiffChallengeDraft.csproj" />
     </ItemGroup>
 
 </Project>
